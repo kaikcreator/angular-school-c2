@@ -10,11 +10,11 @@ export class ContactsListComponent implements OnInit {
 
   public contacts:Contact[] = [];
   constructor() {
-    this.contacts.push(new Contact(1, "Albert"));
-    this.contacts.push(new Contact(2, "Beckie", null, [ { type:PhoneType.mobile, number:111223344 } ] ));
   }
 
   ngOnInit() {
+    this.contacts.push(new Contact(1, "Albert"));
+    this.contacts.push(new Contact(2, "Beckie", null, [ { type:PhoneType.mobile, number:111223344 } ] ));    
   }
 
 }
