@@ -3,7 +3,7 @@ export class Contact{
         public id:number,
         public name:string,
         public picture?:string,
-        public phones?:[ContactPhoneI],
+        public phones?:ContactPhoneI[],
         public email?:string,
         public direction?:string
     ){ }
