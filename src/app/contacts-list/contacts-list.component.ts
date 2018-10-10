@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Contact, PhoneType } from '../contact.model';
 
 @Component({
   selector: 'app-contacts-list',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsListComponent implements OnInit {
 
-  constructor() { }
+  public contacts:Contact[] = [];
+  constructor() {
+    this.contacts.push(new Contact(1, "Albert"));
+    this.contacts.push(new Contact(2, "Beckie", null, [ { type:PhoneType.mobile, number:111223344 } ] ));
+  }
 
   ngOnInit() {
   }
