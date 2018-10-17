@@ -1,6 +1,5 @@
 <h1>Contacts</h1>
 <div class="contacts-list">
     <app-contact *ngFor="let contact of contacts"
-    [contact]="contact" [expanded]="contact.id === selectedContact"
-    (clicked)="onContactSelected($event)"></app-contact>
+    [contact]="contact" (clicked)="onContactSelected($event)"></app-contact>
 </div>
