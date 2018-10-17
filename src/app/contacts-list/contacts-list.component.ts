@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ViewChildren, AfterViewInit, ChangeDetectorRef, QueryList } from '@angular/core';
 import { Contact } from '../contact.model';
 import { ContactsService } from '../contacts.service';
 import { ContactComponent } from '../contact/contact.component';
@@ -10,7 +10,7 @@ import { ContactComponent } from '../contact/contact.component';
 })
 export class ContactsListComponent implements OnInit, AfterViewInit {
 
-  @ViewChild(ContactComponent) someContact:ContactComponent;
+  @ViewChildren(ContactComponent) contactComponents:QueryList<ContactComponent>;
   public selectedContact:number = null;
   public contacts:Contact[] = [];
   constructor(public contactsService:ContactsService, private cdRef:ChangeDetectorRef) { }
@@ -20,13 +20,22 @@ export class ContactsListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(){
-    console.log(this.someContact);
-    this.someContact.expanded = true;
-    this.cdRef.detectChanges();
+    this.contactComponents.forEach( item => {
+      console.log(item);
+    });
   }
 
   onContactSelected(id:number){
-    this.selectedContact = this.selectedContact === id ? null : id;
+    this.selectedContact = id;
+
+    this.contactComponents.forEach(item => {
+      if(item.contact.id === this.selectedContact){
+        item.expanded = !item.expanded;
+      }
+      else{
+        item.expanded = false;
+      }
+    });
   }
 
 }
