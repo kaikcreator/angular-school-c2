@@ -10,7 +10,11 @@ export class ContactsService {
 
     getContacts(){
         return [
-            new Contact(1, "Albert", "assets/default-user.png"),
+            new Contact(1, "Albert", "assets/default-user.png", [
+                {type:PhoneType.work, number:93200621621 },
+                {type:PhoneType.home, number:93444001100 },
+                {type:PhoneType.mobile, number:629304050 } 
+            ], "albert@email.com", "Villaroel 52, 08027, Barcelona" ), 
             new Contact(2, "Beckie", "assets/default-user.png", [ 
                 { type:PhoneType.mobile, number:111223344 }
             ] ),
