@@ -1,4 +1,4 @@
-<div class="contact">
+<div class="contact" (click)="parent.onContactSelected(contact.id)">
   <img class="contact-image" [src]="contact.picture">
   <div class="contact-detail">
     <h1 class="contact-detail-name">{{contact.name}}</h1>
