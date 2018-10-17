@@ -9,6 +9,8 @@ import { Contact } from '../contact.model';
 export class ContactComponent implements OnInit {
 
   @Input() contact: Contact;
+  @Input() expanded: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
