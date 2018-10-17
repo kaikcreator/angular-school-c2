@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Contact } from '../contact.model';
+import { ContactsListComponent } from '../contacts-list/contacts-list.component';
 
 @Component({
   selector: 'app-contact',
@@ -11,7 +12,7 @@ export class ContactComponent implements OnInit {
   @Input() contact: Contact;
   @Input() expanded: boolean = false;
 
-  constructor() { }
+  constructor(public parent:ContactsListComponent) { }
 
   ngOnInit() {
   }
