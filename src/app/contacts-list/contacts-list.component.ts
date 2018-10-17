@@ -9,12 +9,17 @@ import { ContactsService } from '../contacts.service';
 })
 export class ContactsListComponent implements OnInit {
 
+  public selectedContact:number = null;
   public contacts:Contact[] = [];
   constructor(public contactsService:ContactsService) {
   }
 
   ngOnInit() {
     this.contacts = this.contactsService.getContacts();
+  }
+
+  onContactSelected(id:number){
+    this.selectedContact = this.selectedContact === id ? null : id;
   }
 
 }
