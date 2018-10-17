@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Contact } from '../contact.model';
 import { ContactsListComponent } from '../contacts-list/contacts-list.component';
 
@@ -11,10 +11,15 @@ export class ContactComponent implements OnInit {
 
   @Input() contact: Contact;
   @Input() expanded: boolean = false;
+  @Output() clicked: EventEmitter<number> = new EventEmitter();
 
-  constructor(public parent:ContactsListComponent) { }
+  constructor() { }
 
   ngOnInit() {
+  }
+
+  onClick(){
+    this.clicked.emit(this.contact.id);
   }
 
 }
