@@ -17,6 +17,7 @@ export class ContactsListComponent implements OnInit {
   }
 
   onContactSelected(id:number){
+    this.contactsService.selectContactById(id);
   }
 
 }
