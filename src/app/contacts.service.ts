@@ -6,7 +6,19 @@ import { Contact, PhoneType} from './contact.model';
 })
 export class ContactsService {
 
+    public selectedContact:Contact = null;
     constructor() { }
+
+    selectContactById(id){
+        if(this.selectedContact && this.selectedContact.id === id){
+            this.selectedContact = null;
+        }
+        else{
+            this.selectedContact = this.getContacts()
+            .filter(item => item.id === id)[0];
+        }
+
+    }
 
     getContacts(){
         return [
