@@ -1,4 +1,12 @@
-div{
+.container{
     height: 60px;
     padding-top: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
 }
