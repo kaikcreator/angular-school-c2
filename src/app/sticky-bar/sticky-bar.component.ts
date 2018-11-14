@@ -1,4 +1,5 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ContentChild } from '@angular/core';
+import { BarButtonComponent } from '../bar-button/bar-button.component';
 
 @Component({
   selector: 'app-sticky-bar',
@@ -7,10 +8,15 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class StickyBarComponent implements OnInit {
 
+  @ContentChild('barHeader') barHeader;
   public isSticky = false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngAfterContentInit(){
+    console.log(this.barHeader);
   }
 
   @HostListener('window:scroll', ['$event'])
