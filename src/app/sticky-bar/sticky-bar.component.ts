@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-sticky-bar',
@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StickyBarComponent implements OnInit {
 
+  public isSticky = false;
   constructor() { }
 
   ngOnInit() {
   }
+
+  @HostListener('window:scroll', ['$event'])
+  private handleScroll($event:Event){
+    if($event.srcElement.children[0].scrollTop > 20 && !this.isSticky){
+      this.isSticky = true;
+    }
+    else if($event.srcElement.children[0].scrollTop <= 20 && this.isSticky){
+      this.isSticky = false;
+    }
+  }  
 
 }
