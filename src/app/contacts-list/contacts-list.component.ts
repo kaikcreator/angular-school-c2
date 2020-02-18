@@ -14,10 +14,9 @@ export class ContactsListComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   private handleScroll($event:Event){
-    if($event.srcElement.children[0].scrollTop > 20 && !this.isStickyHeader){
+    if(($event.target as HTMLElement).children[0].scrollTop > 20 && !this.isStickyHeader){
       this.isStickyHeader = true;
-    }
-    else if($event.srcElement.children[0].scrollTop <= 20 && this.isStickyHeader){
+    }else if(($event.target as HTMLElement).children[0].scrollTop <= 20 && this.isStickyHeader){
       this.isStickyHeader = false;
     }
   }
