@@ -15,10 +15,10 @@ export class StickyBarComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   private handleScroll($event:Event){
-    if($event.srcElement.children[0].scrollTop > 20 && !this.isSticky){
+    if(($event.target as HTMLElement).children[0].scrollTop > 20 && !this.isSticky){
       this.isSticky = true;
     }
-    else if($event.srcElement.children[0].scrollTop <= 20 && this.isSticky){
+    else if(($event.target as HTMLElement).children[0].scrollTop <= 20 && this.isSticky){
       this.isSticky = false;
     }
   }  
