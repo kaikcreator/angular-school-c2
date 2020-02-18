@@ -7,7 +7,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class BarButtonComponent implements OnInit {
 
-  @ViewChild('btn') button;
+  @ViewChild('btn', { static: true }) button;
   constructor() { }
 
   ngOnInit() {
